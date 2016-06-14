@@ -45,9 +45,17 @@ void Os_Init()
 	// Disable all peripherals
 	PRR = 0xFF;
 
-	/* Init Timer2 as 1ms counter with interrupts */
+	// Enable pullup resistor on all inputs
+	DDRB = 0;
+	DDRC = 0;
+	DDRD = 0;
+	PORTB = 0xFF;
+	PORTC = 0xFF;
+	PORTD = 0xFF;
+
+	// Init Timer2 as 1ms counter with interrupts
 	RESET_BIT(PRR, PRTIM2);   // Enable peripheral
-	OCR2A  = (F_CPU/8)/1000; // Count 1000us
+	OCR2A  = (F_CPU/8)/1000;  // Count 1000us
 	TCNT2  = 0;               // Reset timer value
 	TCCR2A = 0x2;             // CTC mode
 	TCCR2B = 0x2;             // Set prescaler to 8
