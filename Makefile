@@ -16,7 +16,7 @@ CFLAGS=-O2 -g0 -mmcu=$(ARCH) -ffunction-sections -fdata-sections
 LDFLAGS=-Wl,-gc-sections -Wl,--relax
 
 # Serial config
-SERIAL_TTY=/dev/ttyACM0
+SERIAL_TTY=/dev/ttyACM1
 SERIAL_MONITOR=screen
 SERIAL_BAUD_RATE=9600
 
@@ -61,7 +61,7 @@ prepare:
 	@mkdir -p $(OBJ)/$(ARCH) $(OUT)
 	
 fuses:
-	@$(UPLOAD) -b 19200 -c $(PROGRAMMER) -p $(ARCH) -P $(SERIAL_TTY) -U lfuse:w:0x5e:m -U hfuse:w:0xdf:m -U efuse:w:0xf9:m
+	@$(UPLOAD) -b 19200 -c $(PROGRAMMER) -p $(ARCH) -P $(SERIAL_TTY) -U lfuse:w:0x7f:m -U hfuse:w:0xdf:m -U efuse:w:0xf9:m
 
 upload:
 	@$(UPLOAD) -b 19200 -c $(PROGRAMMER) -p $(ARCH) -P $(SERIAL_TTY) -U flash:w:$(OUT)/$(FNAME).hex
