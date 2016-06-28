@@ -9,6 +9,7 @@ MIDI controller for the Digitech Whammy
 - Standard 9V center negative connector
 
 The programming was done on an Arduino Uno and implemented on an Atmel AVR ATMega 88A @ 2Mhz
+Vidéo demo available at https://www.youtube.com/watch?v=AqI-VZF9RrA
 
 ![The circuit used for testing](img/pcb-1.jpg)
 ![The finished product](img/finished-1.jpg)
